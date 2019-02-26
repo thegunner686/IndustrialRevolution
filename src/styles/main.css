@@ -1,0 +1,144 @@
+body, html {
+    margin: 0px;
+    padding: 0px;
+}
+
+#page-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#nav-bar {
+    position: absolute;
+    height: 20vh;
+    width: 60vw;
+    top: 5vh;
+    left: 20vw;
+   /* background-color: rgba(50, 90, 180, 0.9);*/
+    z-index: 1000;
+    /* -webkit-animation: navbar 4s ease infinite; */
+}
+
+@-webkit-keyframes navbar {
+    0% {
+        background-color: rgba(50, 90, 180, 0.9);
+    }
+
+    50% {
+        background-color: rgba(50, 90, 250, 0.9);
+    }
+
+    100% {
+        background-color: rgba(50, 90, 180, 0.9);
+    }
+}
+
+#nav-container {
+
+}
+
+.nav-link {
+
+}
+
+.nav-link-text {
+
+}
+
+.nav-sublinks {
+
+}
+
+.nav-sublink {
+
+}
+
+.nav-sublink-text {
+
+}
+
+.side-animator {
+    width: 8vw;
+    height: 100vh;
+    background-color: rgba(10, 10, 10, 0.7);
+    mix-blend-mode: screen;
+}
+
+#side-animator-left {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 9999;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 0%;
+    animation: side-animation-left 1.5s linear infinite;
+}
+
+#side-animator-right {
+    position: absolute;
+    left: 95vw;
+    top: 0px;
+    z-index: 9999;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    border-bottom-left-radius: 100%;
+    animation: side-animation-right 1.5s linear infinite;
+}
+
+@keyframes side-animation-right {
+    0% {
+        left: 92vw;
+        width: 8vw;
+    }
+
+    50% {
+        left: 89vw;
+        width: 11vw;
+        background-color: rgba(250, 40, 20, 0.8);
+    }
+
+
+    100% {
+        left: 92vw;
+        width: 8vw;
+    }
+
+}
+
+@keyframes side-animation-left {
+    0% {
+        width: 8vw;
+    }
+
+    50% {
+        width: 11vw;
+        background-color: rgba(250, 40, 20, 0.8);
+    }
+
+    100% {
+        width: 8vw;
+    }
+
+}
+
+#title {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-size: 6em;
+    color: rgba(200, 20, 50, 1);
+    z-index: 800;
+    top: 10vh;
+    left: 25vw;
+    margin: 0px;
+    width: 50vw;
+    height: 80vh;
+    mix-blend-mode: color-dodge;
+}
