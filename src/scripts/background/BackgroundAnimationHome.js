@@ -12,8 +12,8 @@ class BackgroundAnimationHome {
         this.draw = this.draw.bind(this);
 
         // objects/references
-        //this.backgroundColor = "rgba(255, 255, 255, 1)";// white
-        this.backgroundColor = "rgba(20, 20, 20, 0.1)";
+        this.backgroundColor = "rgba(200, 255, 255, 1)";// white
+        //this.backgroundColor = "rgba(20, 20, 20, 0.1)";
 
         this.fourierAnimationSet = false;
         this.smokesSet = false;

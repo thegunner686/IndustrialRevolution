@@ -1,6 +1,6 @@
 body, html {
-    margin: 10px;
-    padding: 10px;
+    margin: 0px;
+    padding: 0px;
 }
 
 #page-container {
@@ -133,12 +133,12 @@ body, html {
     justify-content: center;
     position: absolute;
     font-size: 6em;
-    color: rgba(200, 20, 50, 1);
+    color: rgba(20, 20, 20, 0.9);
     z-index: 800;
     top: 10vh;
     left: 25vw;
     margin: 0px;
     width: 50vw;
     height: 80vh;
-    mix-blend-mode: color-dodge;
+    mix-blend-mode: multiply;
 }
