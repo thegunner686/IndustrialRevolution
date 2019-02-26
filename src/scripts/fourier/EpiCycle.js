@@ -63,10 +63,6 @@ class EpiCycle extends ColorablePhysical {
             cx = this.x,
             cy = this.y;
 
-
-        ctx.save();
-        ctx.translate(window.innerWidth / 2, window.innerHeight / 2);
-        ctx.scale(0.4, 0.4);
         for(let i = 0; i < this.fourier.length; i++) {
             
             let prevX = x,
@@ -101,7 +97,6 @@ class EpiCycle extends ColorablePhysical {
                 ctx.stroke();
                 ctx.closePath();
         }
-        ctx.restore();
         return { x, y, cx, cy };
     }
 }

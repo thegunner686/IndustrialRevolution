@@ -33,42 +33,42 @@ class FourierAnimation extends Colorable {
         //         ys.push(TEST_DATA[i].y);
         // }
 
-        this.epiRadius = this.width / 6;
+        this.epiRadius = this.width / 2;
         for(let i = 0; i < 100; i++) {
             let angle = (i / 100) * Math.PI * 2;
-            xs.push(this.epiRadius * Math.cos(angle) * Math.sin(angle) - this.width / 2.7);
+            xs.push(this.epiRadius * Math.cos(angle) * Math.sin(angle));
             //xs.push(Math.random() * 100);
         }
         for(let i = 0; i < 100; i++) {
             let angle = (i / 100) * Math.PI * 2;
-            ys.push(this.epiRadius * Math.sin(angle) * Math.sin(angle) - 20);
+            ys.push(this.epiRadius * Math.sin(angle) * Math.sin(angle));
             //ys.push(Math.random() * 100);
         }
 
         this.epiCycleX = new EpiCycle(
-            this.width / 1.5, // x
+            this.width / 2, // x
             50, // y
-            0.4,  // speed
+            0.1,  // speed
             Math.random() * Math.PI * 2, // dir
-            100, // mass
+            20, // mass
             0, // rotation angle
             xs // values
         );
 
 
         this.epiCycleY = new EpiCycle(
-            -this.width / 2, // x
-            this.height / 2, // y
-            0.3,  // speed
+            this.width / 6, // x
+            this.height / 3, // y
+            0.1,  // speed
             Math.random() * Math.PI * 2, // dir
-            100, // mass
+            20, // mass
             Math.PI / 2, // rotation angle
             ys // values
         );
 
-        let sunMass = 1000,
-            sunX = 0,//this.width / 2,
-            sunY = 0;//this.height / 2;
+        let sunMass = 100,
+            sunX = this.width / 2,//this.width / 2,
+            sunY = this.height / 2;//this.height / 2;
 
         this.epiCycleX.addGravitation({
             x: sunX,
@@ -81,6 +81,8 @@ class FourierAnimation extends Colorable {
             y: sunY,
             mass: sunMass
         });
+
+
 
     }
     
@@ -99,14 +101,10 @@ class FourierAnimation extends Colorable {
             scl = 0.4;
         
         ctx.strokeStyle = this.getColorWithOpacity(0.1);
-        ctx.save();
-        ctx.translate(this.width / 2, this.height / 2);
-        ctx.scale(scl, scl);
         ctx.lineWidth = 0.5;
         ctx.beginPath();
         ctx.moveTo(ex.cx, ex.cy);
 
-        ctx.restore();
 
         ctx.save();
         ctx.translate(offsetX, offsetY);
@@ -117,13 +115,10 @@ class FourierAnimation extends Colorable {
         ctx.stroke();
         ctx.closePath();
 
-        ctx.save();
-        ctx.translate(this.width / 2, this.height / 2);
-        ctx.scale(scl, scl);
+
         ctx.beginPath();
         ctx.moveTo(ey.cx, ey.cy);
 
-        ctx.restore();
 
         ctx.save();
         ctx.translate(offsetX, offsetY);

@@ -31,7 +31,8 @@
             <div class="ui text container">
                     <h1 class="ui header">Never fear, for Steam is Here!</h1>
                     <h5 class="ui header">Geo Fratian, Editor, Published 2/26/2019</h5>
-                    <img class="ui medium floated left image" src="" style="width:120px; height: 120px; opacity: 0"/>
+                    <!-- <img class="ui medium floated left image" src="" style="width:120px; height: 120px; opacity: 0"/> -->
+                    <canvas class="ui small floated left image" id="flare"></canvas>
                     <img class="ui medium floated right image" src="https://www.bibalex.org/PSC/Attachment/Attachment/steam-engine1.jpg"/>
                     <p>The Steam engine is the new invention of the century. But how does it work? Well for starters you need a fuel source. Let's look towards the coal mines for help, and gather some coal. Now that we've gotten our fuel, let's start building our steam engine. The fuel (coal) burns producing heat that causes water to turn into steam (hence the name of the engine) in a boiler (where the water sits). Then, that steam is captured and used to power the machine. Then, a cylinder and a piston is used to make the machine work (as steam enters the cylinder causing the piston to push out via pressure). Then, a machine is attached to the piston causing it to make something move. As the piston pushes outwards and repeats to cause movement. That ladies and gentlemen is how your train that takes you to work in the factories works, just as the machines in the textile industry functions.</p>
                 </div>
@@ -60,26 +61,21 @@
 
             <script src="./src/scripts/classes/Flare.js"></script>
             <script>
-                let canvas = document.createElement("canvas"),
+                let canvas = document.getElementById("flare"),
                     ctx = canvas.getContext("2d"),
-                    width = canvas.width = window.innerWidth,
-                    height = canvas.height = window.innerHeight;
+                    width = canvas.width = 100,
+                    height = canvas.height = 100;
 
-                canvas.style.position = "absolute";
-                canvas.style.left = "0px";
-                canvas.style.top = "0px";
-                canvas.style.zIndex = "0";
+                
 
-                document.body.appendChild(canvas);
-
-                let fl = new Flare(width / 6, height / 3, 60);
+                let fl = new Flare(width / 2, height / 2, 50);
 
                 render();
 
                 function render() {
                     //ctx.clearRect(0, 0, width, height);
                     ctx.fillStyle = "rgba(255, 255, 255, 0.1)";
-                    ctx.fillRect(fl.x - fl.size, fl.y - fl.size, fl.size * 2, fl.size * 2);
+                    ctx.fillRect(0, 0, width, height);
                     fl.draw(ctx);
                     requestAnimationFrame(render);
                 }
