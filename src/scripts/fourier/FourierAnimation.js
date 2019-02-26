@@ -33,22 +33,22 @@ class FourierAnimation extends Colorable {
         //         ys.push(TEST_DATA[i].y);
         // }
 
-        this.epiRadius = this.width / 2.2;
+        this.epiRadius = this.width / 6;
         for(let i = 0; i < 100; i++) {
             let angle = (i / 100) * Math.PI * 2;
-            xs.push(this.epiRadius * Math.cos(angle) * Math.sin(angle) - this.width / 3);
+            xs.push(this.epiRadius * Math.cos(angle) * Math.sin(angle) - this.width / 2.7);
             //xs.push(Math.random() * 100);
         }
         for(let i = 0; i < 100; i++) {
             let angle = (i / 100) * Math.PI * 2;
-            ys.push(this.epiRadius * Math.sin(angle) * Math.sin(angle) - 100);
+            ys.push(this.epiRadius * Math.sin(angle) * Math.sin(angle) - 20);
             //ys.push(Math.random() * 100);
         }
 
         this.epiCycleX = new EpiCycle(
             this.width / 1.5, // x
             50, // y
-            0,  // speed
+            0.4,  // speed
             Math.random() * Math.PI * 2, // dir
             100, // mass
             0, // rotation angle
@@ -57,30 +57,30 @@ class FourierAnimation extends Colorable {
 
 
         this.epiCycleY = new EpiCycle(
-            50, // x
-            this.height / 1.5, // y
-            0,  // speed
+            -this.width / 2, // x
+            this.height / 2, // y
+            0.3,  // speed
             Math.random() * Math.PI * 2, // dir
             100, // mass
             Math.PI / 2, // rotation angle
             ys // values
         );
 
-        let sunMass = 4000,
+        let sunMass = 1000,
             sunX = 0,//this.width / 2,
             sunY = 0;//this.height / 2;
 
-        // this.epiCycleX.addGravitation({
-        //     x: sunX,
-        //     y: sunY,
-        //     mass: sunMass
-        // });
+        this.epiCycleX.addGravitation({
+            x: sunX,
+            y: sunY,
+            mass: sunMass
+        });
 
-        // this.epiCycleY.addGravitation({
-        //     x: sunX,
-        //     y: sunY,
-        //     mass: sunMass
-        // });
+        this.epiCycleY.addGravitation({
+            x: sunX,
+            y: sunY,
+            mass: sunMass
+        });
 
     }
     
@@ -92,17 +92,17 @@ class FourierAnimation extends Colorable {
         let ex = this.epiCycleX.drawAndUpdate(ctx, this.time),
             ey = this.epiCycleY.drawAndUpdate(ctx, this.time);
 
-        this.path.unshift({x: ex.x, y: ey.y, a: 0.1 + Math.random() / 3});
+        this.path.unshift({x: ex.x, y: ey.y, a: 0.1 + Math.random() / 10});
 
-        let offsetX = -this.epiRadius / 2.4,
-            offsetY = -this.epiRadius / 1.8,
+        let offsetX = 0,//-this.epiRadius / 2.4,
+            offsetY = 0,//-this.epiRadius / 1.8,
             scl = 0.4;
         
-        ctx.strokeStyle = this.getColorWithOpacity(0.2);
+        ctx.strokeStyle = this.getColorWithOpacity(0.1);
         ctx.save();
         ctx.translate(this.width / 2, this.height / 2);
         ctx.scale(scl, scl);
-        ctx.lineWidth = 0.8;
+        ctx.lineWidth = 0.5;
         ctx.beginPath();
         ctx.moveTo(ex.cx, ex.cy);
 

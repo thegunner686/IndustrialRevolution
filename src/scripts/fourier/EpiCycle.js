@@ -79,10 +79,10 @@ class EpiCycle extends ColorablePhysical {
                 a = 1,
                 b = 0;
 
-                //x += (a + b) * Math.cos(time) - b * Math.cos((a / b + 1) * time);
-                //y += (a + b) * Math.sin(time) - b * Math.sin((a / b + 1) * time)
-                x += radius * Math.cos(freq * time + phase + this.rotation) * Math.cos(time * 50) + Math.random() / 2;
-                y += radius * Math.sin(freq * time + phase + this.rotation) + Math.random() / 2;
+                x += radius * Math.cos(freq * time + phase + this.rotation)
+                y += radius * Math.sin(freq * time + phase + this.rotation)
+                //x += radius * Math.cos(freq * time + phase + this.rotation) * Math.cos(time * 50) + Math.random() / 2;
+                //y += radius * Math.sin(freq * time + phase + this.rotation) + Math.random() / 2;
                 cx -= radius / 4 * Math.cos(freq * time + phase + this.rotation);
                 cy -= radius / 4 * Math.sin(freq * time + phase + this.rotation);
 
